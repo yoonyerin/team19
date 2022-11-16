@@ -92,9 +92,7 @@ CREATE TABLE IF NOT EXISTS user_db (
 -- user_board
 CREATE TABLE IF NOT EXISTS user_board (
     user_id int(11) NOT NULL,
-    user_name varchar(20) NOT NULL,
-    board_id int(11) NOT NULL,
-    last_chg_date datetime NOT NULL
+    board_id int(11) NOT NULL
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- user_fav_db
@@ -107,4 +105,13 @@ CREATE TABLE IF NOT EXISTS user_fav_db (
 CREATE TABLE IF NOT EXISTS user_search_db (
     user_id int(11),
     search1 varchar(100), search2 varchar(100), search3 varchar(100), search4 varchar(100), search5 varchar(100)
+) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+-- board_db
+CREATE TABLE IF NOT EXISTS board_db (
+    board_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title varchar(20) NOT NULL,
+    content text NOT NULL,   
+    mid int(11),
+    last_chg_date datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;

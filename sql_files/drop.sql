@@ -12,3 +12,4 @@ drop table user_db;
 drop table user_board;
 drop table user_fav_db;
 drop table user_search_db;
+drop table board_db;

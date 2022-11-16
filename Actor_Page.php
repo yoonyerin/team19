@@ -10,10 +10,11 @@
     <?php include("./basic_php_files/mysql_connect.php");?>
     <?php include("./basic_php_files/actor_fn.php");?>
     <?php include("./basic_php_files/actor_page_img_layout.php");?>
-    <?php include("./basic_php_files/query_print.php"); ?>
     <?php include("./basic_php_files/search.php"); ?>
     <?php include("./basic_php_files/delete.php"); ?>
-    <?php if(!isset($_POST['input_event'])) $_POST["input_event"]="";?>
+    <?php
+        if(!isset($_POST['input_event'])) {$_POST["input_event"]="";} 
+    ?>
 
     
 
@@ -47,25 +48,39 @@
     <div class="div_inputwrapper">
         <h2 class="h2_title">WHO'S THE KOREAN ACTOR YOU ARE INTERESTED IN?</h2>
         <!-- 배우 이름 입력 폼: 검색한 키워드가 korean_actor DB 필터링용으로 사용됨 -->
-        <form method="POST" id="eventForm" action=<?=$_SERVER['PHP_SELF']?>></form> 
+        <form method="POST" id="eventForm" action=<?=$_SERVER['PHP_SELF']?>>
             <input id='searchEvent' type="text" name="input_event" placeholder="search keyword" form="eventForm">
             <input id='searchButton' type="submit" value="ENTER" form="eventForm">
-        
+        </form>
         <?php  $input_event = $_POST["input_event"];
-         save_query($login, $mysqli, $input_event); ?>
-        <br><b class="recent_keyword_title"> Recently Searched</b>
-        <form method="POST" id="deleteform" target="back">     
+            if($login && !empty($input_event)) save_query($login, $mysqli, $input_event, $_SESSION['user_name']); ?>
+        <br><b class="recent_keyword_title"> <?php if($login){echo 'Recently Searched';}?></b>
+        
+        <?php if($login) { ?>       <!--로그인 세션 없으면 delete버튼도 그냥 없어지게 만들었어요-->
+        <form method="POST" id="deleteform" target="back" action=<?=$_SERVER['PHP_SELF']?>>   
+            <input type="hidden" name="clicked" value='True'>  
+        </form>
         <button class="delete_keyword" form="deleteform">Delete Keyword</button>
-</form>
-        <?php delete_all($mysqli, $_SESSION["user_name"]); ?>
+        <?php }
+        if(isset($_POST['clicked'])) delete_all($mysqli, $_SESSION['user_name']);?>
         
         <table class="recent_keyword_table">
             <tr>
                 <td></td>
-                <td><?php query_print($mysqli, 1)?></td>
-                <td><?php query_print($mysqli, 2)?></td>
-                <td><?php query_print($mysqli, 3)?></td>
-                <td><?php query_print($mysqli, 4)?></td>
+                <?php
+                if ($login) {
+                    $sql = "select search1, search2, search3, search4, search5 from user_search_db where user_id = (select user_id from user_db where user_name = '".$_SESSION[ 'user_name' ]."')";
+                    $res = mysqli_query($mysqli, $sql);
+                    while($q=mysqli_fetch_array($res, MYSQLI_NUM)){
+                        for($i=0;$i<=4;$i++) {
+                            echo '<td>';
+                            if(empty($q[$i])) {echo "";} else {echo $q[$i];}
+                            echo '</td>';
+                        }
+                    }
+                }
+                else { for($i=0;$i<=4;$i++) {echo '<td></td>';}} 
+                ?>
             </tr>
         </table>
     </div>
@@ -74,10 +89,10 @@
     <div class="div_movie_section">
        
         <div class="div_horizontal">
-            <h2 class="h2_text">THE MOVIES WITH 
-                <?php 
-                    echo $_POST["input_event"];
-                ?>
+            <h2 class="h2_text">
+                <?php
+                    if(empty($_POST["input_event"])) {echo "ALL KOREAN MOVIES";}else{echo 'THE MOVIES WITH '.$_POST["input_event"];}
+                ?>    
             </h2> <!-- 배우 이름 출력 -->
            
             <h2 class="h2_text">

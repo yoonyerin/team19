@@ -10,8 +10,8 @@ function initial_post_community($mysqli, $title, $content, $mid){
     while($id=mysqli_fetch_assoc($id_res)) $user_id=$id["user_id"];
     
 
-    $sql_board="insert into user_board (title, content, mid) values ('".$title."','".$content."''".$mid."');";
-    $find_board_id="select board_id from user_board where content='".$content."';";
+    $sql_board="insert into board_db (title, content, mid) values ('".$title.".','".$content."','".$mid."');";
+    $find_board_id="select board_id from board_db where content='".$content."' and title ='".$title."' and mid='".$mid."';";
 
     
 
@@ -22,8 +22,7 @@ function initial_post_community($mysqli, $title, $content, $mid){
         $board_id=$row["board_id"];
     }
 
-    $sql_user_board="insert into user_db (user_id, user_name, board_id) values (' ".$user_id."','".(string)$_SESSION["user_name"]."','".
-        $board_id."');";
+    $sql_user_board="insert into user_board (user_id, board_id) values (' ".$user_id."','".$board_id."');";
 
     $create_user_board=mysqli_query($mysqli, $sql_user_board);
 

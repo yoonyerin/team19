@@ -6,8 +6,8 @@
     <title>Main_Page</title>
     <link href="Community.css" rel="stylesheet" type="text/css" />
     <?php include("./basic_php_files/session.php"); ?>
-    <?php include("./basic_php_files/community_get.php") ?>
-    <?php include "./basic_php_files/community_board_db.php" ?>
+    <?php include("./basic_php_files/community_post.php") ?>
+    <?php #include "./basic_php_files/community_board_db.php" ?>
     <?php include "./basic_php_files/community_fn.php" ?>
 
 </head>
@@ -26,8 +26,8 @@
                 <li><a onclick="location.href='Season_Page.php'">SEASONS</a></li>
                 <li><a onclick="location.href='Favor_Page.php'">OTT SERVICE</a></li>
                 <li><a onclick="location.href='Genre_Page.php'">GENRE</a></li>
-                <li><a class="text_green" onclick="location.href='Event_Page_autoscroll.php'">EVENT</a></li>
-                <li><a onclick="location.href='Community_Result_Page.php'">COMMUNITY</a></li>
+                <li><a onclick="location.href='Event_Page_autoscroll.php'">EVENT</a></li>
+                <li><a class="text_green" onclick="location.href='Community_Result_Page.php'">COMMUNITY</a></li>
                 <li><a onclick="location.href='Actor_Page.php'">KOREAN ACTOR</a></li>
             </ul>
         </nav>
@@ -60,34 +60,36 @@
             </tr>
             <tr>
                 <td bgcolor=white>
-                    <table class="table2">
-                        <tr>
-                            <td>Name</td>
-                            <td><?= $_SESSION["user_name"];?></td>
+                    <form method="POST" id="community_post" action=<?= $_SERVER['PHP_SELF']?>>
+                        <table class="table2">
+                            <tr>
+                                <td>Name</td>
+                                <td><?= $_SESSION["user_name"];?></td>
 
-                        </tr>
-                        <form method="POST" id="community_post" action=<?= $_SERVER['PHP_SELF']?>>
-                        <tr>
-                            <td>Title</td>
+                            </tr>
+                            <tr>
+                                <td>Title</td>
+                                
+                                <td><input type="text" name="title" size=70></td>
+                            </tr>
+                            <tr>
+                                <td>Content</td>
+                                <td><textarea name="content" cols=75 rows=15></textarea></td>
+                            </tr>
+
+                            <!-- <tr>
+                                <td>비밀번호</td>
+                                <td><input type="password" name="pw" size=15 maxlength=15></td>
+                            </tr> -->
                             
-                            <td><input type="text" name="title" size=70></td>
-                        </tr>
-                        <tr>
-                            <td>Content</td>
-                            <td><textarea name="content" cols=75 rows=15></textarea></td>
-                        </tr>
-
-                        <!-- <tr>
-                            <td>비밀번호</td>
-                            <td><input type="password" name="pw" size=15 maxlength=15></td>
-                        </tr> -->
-                        </form>
-                        <?php initial_post_community($mysqli, $_POST["title"], $_POST["content"], $movie["mid"]); ?>
-                    </table>
-
-                    <center>
-                        <input style="height:26px; font-size:16px;font-family: Georgia, 'Times New Roman', Times, serif;" type="submit" value="WRITE">
-                    </center>
+                            
+                        </table>
+                    </form> 
+                    <?php initial_post_community($mysqli, $_POST["title"], $_POST["content"], $_POST["mid"]); ?>
+                        <center>
+                            <button style="height:26px; font-size:16px;font-family: Georgia, 'Times New Roman', Times, serif; color:black" type="submit" value="WRITE" form="community_post">WRITE</button>
+                        </center>
+    
                 </td>
             </tr>
         </table>
