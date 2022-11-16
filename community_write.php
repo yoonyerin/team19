@@ -6,7 +6,10 @@
     <title>Main_Page</title>
     <link href="Community.css" rel="stylesheet" type="text/css" />
     <?php include("./basic_php_files/session.php"); ?>
-    
+    <?php include("./basic_php_files/community_get.php") ?>
+    <?php include "./basic_php_files/community_board_db.php" ?>
+    <?php include "./basic_php_files/community_fn.php" ?>
+
 </head>
 <body>
     <div class="div_mainbar">
@@ -25,7 +28,7 @@
                 <li><a onclick="location.href='Genre_Page.php'">GENRE</a></li>
                 <li><a class="text_green" onclick="location.href='Event_Page_autoscroll.php'">EVENT</a></li>
                 <li><a onclick="location.href='Community_Result_Page.php'">COMMUNITY</a></li>
-                <li><a onclick="location.href='initial_actor_page.php'">KOREAN ACTOR</a></li>
+                <li><a onclick="location.href='Actor_Page.php'">KOREAN ACTOR</a></li>
             </ul>
         </nav>
         </div>
@@ -43,8 +46,8 @@
 </html>
 <body>
 <div class=poster>
-    <h2 class="h2_community_title">{MOVIE TITLE}</h2>
-        <img class=detail_img src=https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xr3oGJYQWLunuw7L5myo4VT8DBz.jpg height="500px">
+    <h2 class="h2_community_title"><?=$movie["original_title"]?></h2>
+        <img class=detail_img src=<?=$poster["img_src"]?> height="500px">
 </div>
 <div class=board>    
     <form method="post" action="community_write_action.php">
@@ -79,7 +82,7 @@
                             <td><input type="password" name="pw" size=15 maxlength=15></td>
                         </tr> -->
                         </form>
-                        <?php post_community($mysqli, $_POST["title"], $_POST["content"]); ?>
+                        <?php initial_post_community($mysqli, $_POST["title"], $_POST["content"], $movie["mid"]); ?>
                     </table>
 
                     <center>

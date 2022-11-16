@@ -26,7 +26,7 @@
                 <li><a class="text_green" onclick="location.href='Genre_Page.php'">GENRE</a></li>
                 <li><a onclick="location.href='Event_Page_autoscroll.php'">EVENT</a></li>
                 <li><a onclick="location.href='Community_Result_Page.php'">COMMUNITY</a></li>
-                <li><a onclick="location.href='initial_actor_page.php'">KOREAN ACTOR</a></li>
+                <li><a onclick="location.href='Actor_Page.php'">KOREAN ACTOR</a></li>
             </ul>
         </nav>
         </div>

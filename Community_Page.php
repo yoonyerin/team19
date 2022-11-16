@@ -27,7 +27,7 @@
                 <li><a onclick="location.href='Genre_Page.php'">GENRE</a></li>
                 <li><a onclick="location.href='Event_Page_autoscroll.php'">EVENT</a></li>
                 <li><a  class="text_green" onclick="location.href='Community_Result_Page.php'">COMMUNITY</a></li>
-                <li><a onclick="location.href='initial_actor_page.php'">KOREAN ACTOR</a></li>
+                <li><a onclick="location.href='Actor_Page.php'">KOREAN ACTOR</a></li>
             </ul>
         </nav>
         </div>
@@ -60,12 +60,16 @@
                 <td width="200" align="center">Name</td>
             </tr>
         </thead>
+        <?php  print_db($mysqli, $movie["mid"]); ?>
 
         
     </table>
 
     <div class=text>
-        <button id=writeButton style="cursor: hand" onClick="location.href='community_write.php'">WRITE</button>
+    <form action="community_write.php" method="post">
+    <input type="hidden" name="mid" value=<?= $movie["mid"]?> />
+        <button id=writeButton style="cursor: hand" >WRITE</button>
+        </form>
     </div>
 </div>
 </body>
