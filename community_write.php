@@ -6,9 +6,7 @@
     <title>Main_Page</title>
     <link href="Community.css" rel="stylesheet" type="text/css" />
     <?php include("./basic_php_files/session.php"); ?>
-    <?php include("./basic_php_files/community_post.php") ?>
-    <?php #include "./basic_php_files/community_board_db.php" ?>
-    <?php include "./basic_php_files/community_fn.php" ?>
+    <?php include("./basic_php_files/community_get.php") ?>
 
 </head>
 <body>
@@ -16,7 +14,7 @@
 
         <div class="div_logo">
         <hr class="hr_logo">
-        <h1 class="h1_logo">WHO's TT</h1>
+        <h1 class="h1_logo" onclick="location.href='Main_Page.php'">WHO's TT</h1>
         <hr class="hr_logo">
         </div>
         
@@ -27,7 +25,7 @@
                 <li><a onclick="location.href='Favor_Page.php'">OTT SERVICE</a></li>
                 <li><a onclick="location.href='Genre_Page.php'">GENRE</a></li>
                 <li><a onclick="location.href='Event_Page_autoscroll.php'">EVENT</a></li>
-                <li><a class="text_green" onclick="location.href='Community_Result_Page.php'">COMMUNITY</a></li>
+                <li><a  class="text_green" onclick="location.href='Community_Result_Page.php'">COMMUNITY</a></li>
                 <li><a onclick="location.href='Actor_Page.php'">KOREAN ACTOR</a></li>
             </ul>
         </nav>
@@ -40,6 +38,7 @@
 
     </div>
 
+
     <hr class="hr_division">
 
 </body>
@@ -50,7 +49,6 @@
         <img class=detail_img src=<?=$poster["img_src"]?> height="500px">
 </div>
 <div class=board>    
-    <form method="post" action="community_write_action.php">
         <!-- method : POST!!! (GET X) -->
         <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
             <tr>
@@ -60,7 +58,10 @@
             </tr>
             <tr>
                 <td bgcolor=white>
-                    <form method="POST" id="community_post" action=<?= $_SERVER['PHP_SELF']?>>
+                    <form id="community_post" action='./basic_php_files/community_fn.php' method="POST">
+                        <input type="hidden" name="mid" value=<?=$_GET['movie_id']?>>
+                        <input type="hidden" name="n_url" value="community_read.php">
+                        <input type="hidden" name="todo" value="write">
                         <table class="table2">
                             <tr>
                                 <td>Name</td>
@@ -85,15 +86,14 @@
                             
                         </table>
                     </form> 
-                    <?php initial_post_community($mysqli, $_POST["title"], $_POST["content"], $_POST["mid"]); ?>
-                        <center>
+                    <center>
                             <button style="height:26px; font-size:16px;font-family: Georgia, 'Times New Roman', Times, serif; color:black" type="submit" value="WRITE" form="community_post">WRITE</button>
-                        </center>
-    
+                    </center>
+                        
+                   
                 </td>
             </tr>
         </table>
-    </form>
 </div>    
 </body>
 

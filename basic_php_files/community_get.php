@@ -1,4 +1,4 @@
-<?php include('./basic_php_files/session.php'); ?>
+<?php include('session.php'); ?>
 <?php include "mysql_connect.php";?>
 <?php 
 

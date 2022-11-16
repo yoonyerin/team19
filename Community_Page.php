@@ -6,7 +6,7 @@
     <title>Community_Page</title>
     <link href="Community.css" rel="stylesheet" type="text/css" />
     <?php include("./basic_php_files/session.php"); ?>
-    <?php include("./basic_php_files/community_get.php") ?>
+    <?php #sinclude("./basic_php_files/community_get.php") ?>
     <?php include "./basic_php_files/community_board_db.php" ?>
     
 </head>
@@ -60,17 +60,18 @@
                 <td width="200" align="center">Name</td>
             </tr>
         </thead>
-        <?php  print_db($mysqli, $movie["mid"]); ?>
-
+        <?php  print_db($mysqli, $movie["mid"]); ?> <!-- community_board_db.php에 있음 -->
+ 
         
     </table>
-
+    <?php if($login) { ?>
     <div class=text>
-    <form action="community_write.php" method="post">
-    <input type="hidden" name="mid" value=<?= $movie["mid"]?> />
-        <button id=writeButton style="cursor: hand" >WRITE</button>
-        </form>
+    <form action="community_write.php" method="get" id="to_write">
+    <input type="hidden" name="movie_id" value=<?= $movie["mid"]?> />
+    </form>
+    <button id=writeButton style="cursor: hand" form="to_write">WRITE</button>
     </div>
+    <?php } ?>
 </div>
 </body>
 
