@@ -5,7 +5,7 @@ function community_img_layout($mysqli, $query){
     $res=mysqli_query($mysqli, $sql);
     $count=0;
     echo '<form action="Community_Page.php" method="get">';
-    echo '<div class="div_movie_list"><input type="hidden" name="lan" value="kor"/>';
+    echo '<div class="div_movie_list">';
     while($array=mysqli_fetch_assoc($res)){
 
         $img_src_sql="select img_src from movies_poster, movies_ott where movies_poster.mid = ".$array["mid"];
