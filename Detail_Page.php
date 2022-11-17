@@ -25,7 +25,7 @@ if($eng) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Detail_Page</title>
-    <link href="Detail_Page.css" rel="stylesheet" type="text/css" />
+    <link href="Detail_Page.css?ver=1.02" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div class="div_mainbar">
@@ -64,32 +64,34 @@ if($eng) {
             <table border="1">
                 <tr>
                     <td id="column">제목</td>
-                    <td id="detail"><?php echo $movie['original_title']; ?><!--php 삽입: title-->
+                    <td id="detail" class="td_detail"><?php echo $movie['original_title']; ?><!--php 삽입: title-->
                 </tr>
                 <tr>
                     <td id="column"><?php if($eng){ echo '설명'; } else {echo '감독/작가';} ?></td>
-                    <td id="detail"><?php if($eng) {echo $movie['overview'];} else {echo $movie['director'].' / '.$movie['writer'];} ?></td><!--php 삽입: description-->
+                    <td id="detail" class="td_detail"><?php if($eng) {echo $movie['overview'];} else {echo $movie['director'].' / '.$movie['writer'];} ?></td><!--php 삽입: description-->
                 </tr>
                 <tr>
                     <td id="column">개봉년도</td>
-                    <td id="detail"><?php echo $movie['release_year']; ?></td><!--php 삽입: year-->
+                    <td id="detail" class="td_detail"><?php echo $movie['release_year']; ?></td><!--php 삽입: year-->
                 </tr>  
                 <tr>
                     <td id="column"><?php if($eng) {echo '홈페이지';} else {echo '출연';}?></td>
-                    <td id="detail"><?php if($eng) {echo $movie['homepage'];} else {echo $movie['cast'];}?></td><!--php 삽입: age-->
+                    <td id="detail" class="td_detail"><?php if($eng) {echo $movie['homepage'];} else {echo $movie['cast'];}?></td><!--php 삽입: age-->
                 </tr>  
                 <tr>
                     <td id="column"><?php if($eng) {echo '상영시간';} else {echo '제작사';}?></td>
-                    <td id="detail"><?php if($eng) {echo $movie['runtime'];} else {echo $movie['production'];}?></td><!--php 삽입: running_time-->
+                    <td id="detail" class="td_detail"><?php if($eng) {echo $movie['runtime'];} else {echo $movie['production'];}?></td><!--php 삽입: running_time-->
                 </tr>  
                 <tr>
                     <td id="column">장르</td>
-                    <td id="detail"><?php if($eng) {echo $movie['genres_1'].", ".$movie['genres_2'].", ".$movie['genres_3'];} else {echo $movie['genres'];}?></td><!--php 삽입: genre-->
+                    <td id="detail" class="td_detail"><?php if($eng) {echo $movie['genres_1'].", ".$movie['genres_2'].", ".$movie['genres_3'];} else {echo $movie['genres'];}?></td><!--php 삽입: genre-->
                 </tr>      
             </table>
-            
-        </div>
+            <br><br><br>
+        </div> 
     </div> 
+
+    
 
 </body>
 </html>

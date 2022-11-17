@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Actor_Page</title>
-    <link href="Actor_Page.css?ver=1.1" rel="stylesheet" type="text/css" />
+    <link href="Actor_Page.css?ver=1.10" rel="stylesheet" type="text/css" />
     
     <?php include('./basic_php_files/session.php'); ?>
     <?php include("./basic_php_files/mysql_connect.php");?>
@@ -97,6 +97,7 @@
            
             <h2 class="h2_text">
                 <?php find_actors_movie($mysqli, $input_event); ?>
+                개
             </h2>
         </div>
         <!-- TABLE: Korean Actor 

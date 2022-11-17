@@ -228,11 +228,14 @@ position: absolute;z-index: 1;
 }
 
 .read_btn {
-    width: 700px;
+    /* width: 700px; */
     height: 200px;
     text-align: center;
-    margin: auto;
-    margin-top: 50px;
+    /* margin: auto; */
+    /* margin-top: 50px; */
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 25%;
 }
 
 .read_btn1 {

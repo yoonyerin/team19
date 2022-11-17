@@ -4,7 +4,7 @@ function a_img_layout($mysqli, $query){
     $sql="select mid from movies_korean where cast like concat('%','".(string)$query."', '%');";
     $res=mysqli_query($mysqli, $sql);
     
-    echo '<form action="../Community_Result_Page.php" method="get">';
+    echo '<form action="Detail_Page.php" method="get">';
     echo '<div class="div_movie_list"><input type="hidden" name="lan" value="kor"/>';
     while($array=mysqli_fetch_assoc($res)){
 

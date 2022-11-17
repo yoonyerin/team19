@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Main_Page</title>
-    <link href="Community.css" rel="stylesheet" type="text/css" />
+    <link href="Community.css?ver=1.00" rel="stylesheet" type="text/css" />
     <?php include("./basic_php_files/session.php"); ?>
 </head>
 

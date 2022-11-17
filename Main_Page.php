@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Main_Page</title>
-    <link href="Main_Page.css?ver=1.04" rel="stylesheet" type="text/css" />
+    <link href="Main_Page.css?ver=1.06" rel="stylesheet" type="text/css" />
     <?php include('./basic_php_files/session.php'); ?>
 
 
@@ -82,7 +82,7 @@
                 <button id="btn_login_id" class="<?=$_class_not_login ?> ">로그인</button>
                 <button id="btn_register_id" class="<?=$_class_not_login ?>">회원가입</button>
                 <button id="btn_modify_id" class="<?=$_class_login ?>">정보수정</button>
-                <button id="btn_delete_id" class="<?=$_class_login ?>">로그아웃</button>
+                <button id="btn_logout_id" class="<?=$_class_login ?>">로그아웃</button>
             </div>
         </div>
 
@@ -181,6 +181,9 @@
                 <!-- 로그인 버튼 -->
                 </form>
                 <button class="btn_login_modal" type="submit" form="login_form">LOGIN</button>
+                <!-- [TESTING] 버튼 -->
+                <br>
+                <button id="btn_result_id" class="btn_login_modal">LOGIN RESULT</button>
                 
                 <br>
 
@@ -295,20 +298,28 @@
                     <p class="text_green2">이메일</p>
                         <input class="input_login" name="user_email" type="text" size="15" placeholder="NEW EMAIL">    
                 </div>
-            </form>
+                </form>
 
+                <br>
                 <button class="btn_login_modal" type="submit" form="modify">Confirm</button>
+                <br>
+                <!-- 회언탈퇴 -->
+                <div class="div_horizontal">
+                    <p class="text_gray_p">DON'T HAVE AN ACCOUNT?</p>
+                    <button id="btn_here" class="btn_logout">HERE</button>
+                </div>
+
             </div>
 
         </div>
     </div>
 
     <!-- Logout_Page Modal -->
-    <div id="id_delete_modal" class="modal hidden">
-        <div id="id_delete_bg" class="bg"></div>
+    <div id="id_logout_modal" class="modal hidden">
+        <div id="id_logout_bg" class="bg"></div>
         <div class="modalBox">
 
-        <img id="id_delete_close" class="img_btn_close" src="images/btn_close.png" alt="close">
+        <img id="id_logout_close" class="img_btn_close" src="images/btn_close.png" alt="close">
             
             <div class="div_vertical_middle">                
                 <hr class="hr_division">
@@ -328,8 +339,36 @@
                 </form>
                 <div class="div_horizontal">
                     <button class="btn_login_modal" type="submit" form="logout_form">YES</button>
-                    <button class="btn_login_modal" type="submit">NO</button>
+                    <button id="id_logout_no" class="btn_login_modal" type="submit">NO</button>
                 </div>
+            </div>
+
+        </div>
+    </div>
+
+     <!-- Login Result Modal -->
+     <div id="id_result_modal" class="modal hidden">
+        <div id="id_result_bg" class="bg"></div>
+        <div class="modalBox">
+
+        <img id="id_result_close" class="img_btn_close" src="images/btn_close.png" alt="close">
+            
+            <div class="div_vertical_middle">                
+                <hr class="hr_division">
+                <h2 class="text_gray">WELCOME TO</h2>
+
+                <div class="div_logo">
+                    <hr class="hr_logo">
+                    <h1 class="text_logo">WHO's TT</h1>
+                    <hr class="hr_logo">
+                </div>
+
+                <br>
+                <hr class="hr_division">
+                <br><br>
+
+                <h3 class="text_green2">안내 TEXT가 들어갈 위치입니다.</h3>
+                <button id="id_result_ok" class="btn_login_modal">OK</button>
             </div>
 
         </div>
@@ -360,12 +399,20 @@
             document.querySelector("#id_modify_modal").classList.add("hidden");
         }
 
-        // 탈퇴
-        const delete_open = () => {
-            document.querySelector("#id_delete_modal").classList.remove("hidden");
+        // 로그아웃
+        const logout_open = () => {
+            document.querySelector("#id_logout_modal").classList.remove("hidden");
         }
-        const delete_close = () => {
-            document.querySelector("#id_delete_modal").classList.add("hidden");
+        const logout_close = () => {
+            document.querySelector("#id_logout_modal").classList.add("hidden");
+        }
+
+        // 로그인/회원가입 결과
+        const result_open = () => {
+            document.querySelector("#id_result_modal").classList.remove("hidden");
+        }
+        const result_close = () => {
+            document.querySelector("#id_result_modal").classList.add("hidden");
         }
 
         
@@ -385,10 +432,17 @@
         document.querySelector("#id_modify_close").addEventListener("click", modify_close);
         document.querySelector("#id_modify_bg").addEventListener("click", modify_close);
 
-        // 회원탈퇴 모달창 open OR close
-        document.querySelector("#btn_delete_id").addEventListener("click", delete_open);
-        document.querySelector("#id_delete_close").addEventListener("click", delete_close);
-        document.querySelector("#id_delete_bg").addEventListener("click", delete_close);
+        // 로그아웃 모달창 open OR close
+        document.querySelector("#btn_logout_id").addEventListener("click", logout_open);
+        document.querySelector("#id_logout_close").addEventListener("click", logout_close);
+        document.querySelector("#id_logout_no").addEventListener("click", logout_close);
+        document.querySelector("#id_logout_bg").addEventListener("click", logout_close);
+
+        // 로그인 or 회원가입 결과 모달창 open OR close
+        document.querySelector("#btn_result_id").addEventListener("click", result_open);
+        document.querySelector("#id_result_close").addEventListener("click", result_close);
+        document.querySelector("#id_result_ok").addEventListener("click", result_close);
+        document.querySelector("#id_result_bg").addEventListener("click", result_close);
         
 
     </script>

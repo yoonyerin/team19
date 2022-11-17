@@ -98,8 +98,6 @@ position: absolute;z-index: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
     color: #00462A;
-    text-align: left;
-    
 }
 .movie_detail{
     width:100%;
@@ -141,3 +139,9 @@ table {
 .detail_title{
     text-align: center;
 }    
+
+.td_detail {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
+}

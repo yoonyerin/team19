@@ -128,13 +128,31 @@ position: absolute;z-index: 1;
     height: 400px;
 
 }
-/*검색결과 포스터*/
-.img_movie_list {
-width: 270px;
-display: inline-block;
-margin-left: 20px;
-}
+
+
 .div_movie_list{
     text-align: center;
 }
     
+/*검색결과 포스터*/
+.img_movie_list {
+    width: 270px;
+    display: inline-block;
+    margin-left: 20px;
+    flex: 1;
+    filter: brightness(1);
+    transition: 0.8s;
+    
+}
+.img_movie_list:hover {
+    filter: brightness(0.5);
+}
+
+.btn_movie_detail {
+    background-color: white;
+    border: 0px solid wheat;
+}
+
+.text_green {
+    color: #00462A;
+}

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Result_Page</title>
-    <link href="Result_Page.css?ver=1.0" rel="stylesheet" type="text/css" />
+    <link href="Result_Page.css?ver=1.00" rel="stylesheet" type="text/css" />
     <?php include("./basic_php_files/session.php"); ?>
     <?php include("./basic_php_files/community_img_layout.php")?>
     <?php if(!isset($_POST['input_event'])) $_POST["input_event"]="";?>
@@ -62,6 +62,7 @@
             community_img_layout($mysqli, $query) ?>
             <!-- 반복문 종료 -->
         </div>
-    </div>   
+        <br><br>
+    </div>
 </body>
 </html>
