@@ -304,7 +304,7 @@
                 <!-- 회언탈퇴 -->
                 <form action="basic_php_files/signout.php" id="signout_form"></form>
                 <div class="div_horizontal">
-                    <p class="text_gray_p">DON'T HAVE AN ACCOUNT?</p>
+                    <p class="text_gray_p">REALLY WANT TO QUIT?</p>
                     <button id="btn_here" class="btn_logout" form="signout_form">HERE</button>
                 </div>
 
