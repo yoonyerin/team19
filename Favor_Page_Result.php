@@ -2,9 +2,11 @@
 <?php
 include './basic_php_files/mysql_connect.php';
 
+if(isset($_POST['fav_mids'])){
 $fav_mids_list=$_POST['fav_mids'];
-$fav_set=implode("', '", $fav_mids_list);
 $fav_string = implode(", ", $fav_mids_list);
+} else {$fav_string=NULL;}
+
 
 #user_id 임시 지정
 if ($login) {
@@ -16,7 +18,7 @@ if ($login) {
     $user_fav_db_update = mysqli_query($mysqli, $user_fav_sql);
 }
 
-$sql = "select sum(netflix) as netflix, sum(amazon_prime) as amazon_prime, sum(disney_plus) as disney_plus, sum(hulu) as hulu from movies_ott where mid in ('".$fav_set."')" ;
+$sql = "select sum(netflix) as netflix, sum(amazon_prime) as amazon_prime, sum(disney_plus) as disney_plus, sum(hulu) as hulu from movies_ott where mid in ('".$fav_string."')" ;
 $fav_count_list=mysqli_query($mysqli, $sql);
 $fetched_fav=mysqli_fetch_array($fav_count_list);
 $array = array('netflix' => $fetched_fav['netflix'], 'amazon_prime' => $fetched_fav['amazon_prime'], 'disney_plus' => $fetched_fav['disney_plus'], 'hulu' => $fetched_fav['hulu']);

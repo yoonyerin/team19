@@ -14,9 +14,9 @@ include("./basic_php_files/community_get.php");
                 echo '<tbody>
                         <tr class="even">
                         <td width="50" align="center">'.$board["board_id"].'</td>
-                        <td width="500" align="center">'.$board["title"].'<form action="community_read.php" method="get">
+                        <td width="500" align="center"><form action="community_read.php" method="get">
                         <input type="hidden" name="board_id" value="'.$board["board_id"].'">
-                        <input type="submit" value="'.$board["content"].'" style="border:0; background-color: transparent;">'
+                        <input type="submit" value="'.$board["title"].'" style="border:0; background-color: transparent;">'
                         .'</td></form>
                         <td width="200" align="center">'.$board["last_chg_date"].'</td>
                         <td width="50" align="center">'.$user["user_name"].'</td>

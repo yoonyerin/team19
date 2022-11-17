@@ -181,9 +181,7 @@
                 <!-- 로그인 버튼 -->
                 </form>
                 <button class="btn_login_modal" type="submit" form="login_form">LOGIN</button>
-                <!-- [TESTING] 버튼 -->
-                <br>
-                <button id="btn_result_id" class="btn_login_modal">LOGIN RESULT</button>
+                
                 
                 <br>
 
@@ -304,9 +302,10 @@
                 <button class="btn_login_modal" type="submit" form="modify">Confirm</button>
                 <br>
                 <!-- 회언탈퇴 -->
+                <form action="basic_php_files/signout.php" id="signout_form"></form>
                 <div class="div_horizontal">
                     <p class="text_gray_p">DON'T HAVE AN ACCOUNT?</p>
-                    <button id="btn_here" class="btn_logout">HERE</button>
+                    <button id="btn_here" class="btn_logout" form="signout_form">HERE</button>
                 </div>
 
             </div>

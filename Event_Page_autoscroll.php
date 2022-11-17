@@ -46,7 +46,7 @@
             <button class="btn_select">CHRISTMAS</button>
             <button class="btn_select">WEDDING</button>
             <button class="btn_select">FAMILY EVENT</button>
-            <button class="btn_select">TEACHER'S DAY</button>
+            <button class="btn_select">VACATION</button>
             <button class="btn_select">BIRTHDAY</button>
         </div>
     </div>
@@ -84,7 +84,7 @@
         <?php event_poster($mysqli, 'FAMILY EVENT', '3', 'h2_text', 'btn_movie_detail'); ?>
 
         <!-- 이벤트4 영화 포스터 및 개수를 보여주는 section -->
-        <?php event_poster($mysqli, "TEACHER'S DAY", '4', 'h2_text', 'btn_movie_detail'); ?>
+        <?php event_poster($mysqli, "VACATION", '4', 'h2_text', 'btn_movie_detail'); ?>
 
         <!-- 이벤트5 영화 포스터 및 개수를 보여주는 section -->
         <?php event_poster($mysqli, 'BIRTHDAY', '5', 'h2_text', 'btn_movie_detail'); ?>

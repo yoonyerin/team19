@@ -1,7 +1,12 @@
 <?php include('./basic_php_files/session.php'); ?>
 <?php
 include './basic_php_files/mysql_connect.php';
-
+if($login){
+    $checked_sql = "select mid from user_fav_db where user_id = (select user_id from user_db where user_name = '".$_SESSION['user_name']."')";
+    $checked_res = mysqli_query($mysqli, $checked_sql);
+    if(empty($check_list=mysqli_fetch_assoc($checked_res))) $checked=array();
+    else $checked=explode (",", $check_list['mid']);
+} else {$checked=array();}
 ?>
 
 <!DOCTYPE html>
@@ -84,13 +89,13 @@ include './basic_php_files/mysql_connect.php';
             echo '<div class="div_favor_list">';
 
             $line_changer=0;
-            $checked_arr = array();
             
             $sql = 'select * from movies_ott';
             $mid_list_all = mysqli_query($mysqli, $sql);
-
             while($movie=mysqli_fetch_array($mid_list_all,MYSQLI_ASSOC)){
                 $mid = $movie['mid'];
+                if(in_array($mid, $checked)) $check='checked';
+                else $check='';
                 # $title = $movie['original_title'];
                 $q_src_img = 'select img_src from movies_poster where mid =' . $mid;
                 $src_img = mysqli_query($mysqli, $q_src_img);
@@ -104,7 +109,7 @@ include './basic_php_files/mysql_connect.php';
                     </div>
                     
                     <label for="'. $mid .'" class="chk_box">
-                        <input type="checkbox" name="fav_mids[]" value="'. $mid . '"id="'. $mid .'"/>
+                        <input type="checkbox" name="fav_mids[]" value="'. $mid . '"id="'. $mid .'" '.$check.' />
                         <span class="on"></span>
                         선택
                         </label>
