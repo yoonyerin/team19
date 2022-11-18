@@ -55,19 +55,19 @@ if($login){
         <h2 class="text_green_h2">MOVIES PER OTT TYPE</h2>
         <form action="OTT_Page.php" method="get">
             <div class="div_ott_select">
-                <button class="btn_ott_select" type="submit" name="ott_name" value="netflix"><img class="img_ott_select" src="images/netflex.png" alt="netflix"></button>
-                <button class="btn_ott_select" type="submit" name="ott_name" value="disney_plus"><img class="img_ott_select" src="images/disney.png" alt="disney plus"></button>
-                <button class="btn_ott_select" type="submit" name="ott_name" value="amazon_prime"><img class="img_ott_select" src="images/prime.png" alt="amazon prime"></button>
-                <button class="btn_ott_select" type="submit" name="ott_name" value="hulu"><img class="img_ott_select" src="images/hulu.png" alt="hulu"></button>
+                <button class="btn_ott_select" type="submit" name="ott_name" value="netflix"><img class="img_ott_select" src="images/Netflix-Brand-Logo.png" alt="netflix"></button>
+                <button class="btn_ott_select" type="submit" name="ott_name" value="disney_plus"><img class="img_ott_select" src="images/Disney+_logo.png" alt="disney plus"></button>
+                <button class="btn_ott_select" type="submit" name="ott_name" value="amazon_prime"><img class="img_ott_select" src="images/Amazon-Prime-Video-Emblem.png" alt="amazon prime"></button>
+                <button class="btn_ott_select" type="submit" name="ott_name" value="hulu"><img class="img_ott_select" src="images/Hulu_Logo.png" alt="hulu"></button>
             </div>
         </form>
 
         <!--원래 수민이 코드
         <div class="div_ott_select">
-            <img class="img_ott_select" src="images/netflex.png" alt="My Image">
-            <img class="img_ott_select" src="images/disney.png" alt="My Image">
-            <img class="img_ott_select" src="images/prime.png" alt="My Image">
-            <img class="img_ott_select" src="images/hulu.png" alt="My Image">
+            <img class="img_ott_select" src="images/Netflix-Brand-Logo.png" alt="My Image">
+            <img class="img_ott_select" src="images/Disney+_logo.png" alt="My Image">
+            <img class="img_ott_select" src="images/Amazon-Prime-Video-Emblem.png" alt="My Image">
+            <img class="img_ott_select" src="images/Hulu_Logo.png" alt="My Image">
         </div>
         -->
 
